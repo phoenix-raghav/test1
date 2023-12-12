@@ -1,5 +1,5 @@
 import express from 'express';
-// import connectToMongo from './db.js';
+import connectToMongo from './db.js';
 // import Auth from './Routes/Auth.js';
 // import Transactions from './Routes/Transactions.js';
 import dotenv from 'dotenv';
@@ -16,7 +16,11 @@ app.use((req,res,next)=>{
 
 app.use(express.json());
 app.get('/',(req,res)=>{
-    res.send("Hello");
+    const x = connectToMongo();
+    if(x)
+        return res.send("Hello");
+    else
+        return res.send("No");
 })
 // app.use('/',Auth);
 // app.use('/transaction/',Transactions);

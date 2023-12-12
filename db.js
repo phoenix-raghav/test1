@@ -1,0 +1,21 @@
+import db from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const mongoURL = process.env.DATABASE_URL;
+
+const connectToMongo = async() =>{
+    try{
+        await db.connect(mongoURL);
+        console.log('Database Connected');
+        return true;
+    }
+    catch(err){
+        console.log(err)
+        console.log('Error connecting database');
+        return false;
+    }
+}
+
+export default connectToMongo;
+// // module.exports = connectToMongo;
