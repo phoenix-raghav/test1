@@ -17,10 +17,7 @@ app.use((req,res,next)=>{
 app.use(express.json());
 app.get('/',(req,res)=>{
     const x = connectToMongo();
-    if(x)
-        return res.send("Hello");
-    else
-        return res.send("No");
+    return res.send(x);
 })
 // app.use('/',Auth);
 // app.use('/transaction/',Transactions);

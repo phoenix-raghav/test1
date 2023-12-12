@@ -8,12 +8,12 @@ const connectToMongo = async() =>{
     try{
         await db.connect(mongoURL);
         console.log('Database Connected');
-        return true;
+        return "true";
     }
     catch(err){
         console.log(err)
         console.log('Error connecting database');
-        return false;
+        return "false";
     }
 }
 
