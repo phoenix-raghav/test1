@@ -15,9 +15,9 @@ app.use((req,res,next)=>{
 });
 
 app.use(express.json());
-app.get('/',(req,res)=>{
-    // const x = connectToMongo();
-    return res.send(process.env.DATABASE_URL);
+app.get('/',async(req,res)=>{
+    const x = await connectToMongo();
+    return res.send(x);
 })
 // app.use('/',Auth);
 // app.use('/transaction/',Transactions);
